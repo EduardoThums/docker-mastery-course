@@ -1,0 +1,7 @@
+[NETWORK CONCEPTS]
+Containers can actualy talk to each other through their private network, but they need to
+specify a public host to be able to talk with another container(which have already a exposed public port)
+that its not on the same private network.
+
+"Batteries included but removable" -> the networks already comes with default configuration but
+you can change it whatever you want it. 
