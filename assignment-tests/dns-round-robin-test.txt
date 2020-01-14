@@ -1,0 +1,24 @@
+docker network create custom_network
+
+docker container run -d \
+    --name first_elasticsearch \
+    --network custom_network \
+    --network-alias search \
+    elasticsearch:2
+
+docker container run -d \
+    --name second_elasticsearch \
+    --network custom_network \
+    --network-alias search \
+    elasticsearch:2
+
+docker container run --rm \
+    -it \
+    --network custom_network \
+    alpine \ 
+    nslookup search
+
+docker container run --rm \
+    --network custom_network \
+    centos \
+    curl -s search:9200
