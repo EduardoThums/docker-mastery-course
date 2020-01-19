@@ -14,3 +14,12 @@ you can change it whatever you want it.
 **DNS
 It's not a good pratice use the containers IPs for talk to each other. The recommended way
 is create your own custom newtork and then use their names as their DNS addresses.
+
+[IMAGE]
+Bunch of app binaries, dependencies, metadata and how to run your container.
+DockerHub -> default repository to download open source images.
+
+**LAYERS
+Every command on some build image will create a unique layer with a ID, which
+can be used multiple times without create another one every time a image is build
+with the same previous commands.
