@@ -36,4 +36,13 @@ Example:
     """&& apt-get install docker \"""
     """&& apt-get install docker-compose"""
 
+[PERSISTENT DATA]
 
+**VOLUMES
+The docker way to persist the container data event if the container is removed.
+Named Volumes: friendly way to assign volumes to containers.
+Example:
+    """docker container run -d -v mysql-db:/var/lib/mysql mysql"""
+
+**BIND MOUTING
+Maps a host path(some path on your local machine) to the container given path.
