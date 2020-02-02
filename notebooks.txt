@@ -29,8 +29,8 @@ The same image ID can have multiple tags attached to it, but these tags doesn't 
 that they will change the image ID.
 
 **DOCKERFILE
-Each RUN command creates a new image layer, so when we run multiple it's a good pratice
-chain then with the keyword '&&', creating one unique layer given many commands as we which.
+Each RUN command creates a new image layer, so when we run multiple commands it's a good pratice
+chain then with the keyword '&&', creating one unique layer given many commands as we want.
 Example:
     """RUN apt-get update \"""
     """&& apt-get install docker \"""
