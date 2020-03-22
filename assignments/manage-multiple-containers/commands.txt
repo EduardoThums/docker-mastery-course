@@ -1,0 +1,10 @@
+docker container run -d --name local-nginx -p 80:80 nginx:stable
+docker container run -d --name local-apache -p 80:80 httpd:alpine
+docker container run -d --name local-mysql -p 3306:3306 -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql:5.7
+
+docker container logs local-mysql
+
+docker container stop local-nginx local-apache local-mysql
+docker container rm local-nginx local-apache local-mysql
+
+docker container ls -a
