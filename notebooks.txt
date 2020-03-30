@@ -1,6 +1,7 @@
 [CLI]
 -t (pseudo-tty) - simulates a shell terminal, like ssh does
 -i (interactive) - keeps the session open to receive terminal commands
+-a (attach) - same as -t but with to start stopped containers
 
 [NETWORK]
 Containers can actualy talk to each other through their private network, but they need to
