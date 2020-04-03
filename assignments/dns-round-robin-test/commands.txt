@@ -1,0 +1,8 @@
+docker network create dns-round-robin-net
+
+docker container run -d --network dns-round-robin-net --network-alias search elasticsearch:2
+docker container run -d --network dns-round-robin-net --network-alias search elasticsearch:2
+
+docker container run --rm --network dns-round-robin-net -it alpine:3.10 nslookup search
+
+docker container run --rm --network dns-round-robin-net -it centos:7 curl -s search:9200
