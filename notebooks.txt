@@ -36,7 +36,9 @@ Example:
 
 **VOLUMES
 The docker way to persist the container data event if the container is removed.
-Named Volumes: friendly way to assign volumes to containers.
+
+
+**NAMES VOLUMES: friendly way to assign volumes to containers.
 Example:
     """docker container run -d -v mysql-db:/var/lib/mysql mysql"""
 
