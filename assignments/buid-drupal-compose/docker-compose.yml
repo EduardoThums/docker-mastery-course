@@ -1,0 +1,31 @@
+version: "2"
+
+services:
+  drupal:
+    image: "custom-drupal"
+    build: ./
+    container_name: local-drupal
+    ports:
+      - "8080:80"
+    volumes:
+      - "drupal-modules:/var/www/html/modules"
+      - "drupal-profiles:/var/www/html/profiles"
+      - "drupal-sites:/var/www/html/sites"
+      - "drupal-themes:/var/www/html/themes"
+
+  postgres:
+    image: "postgres:12.1"
+    container_name: local-postgres
+    environment:
+      POSTGRES_DB: drupal-db
+      POSTGRES_USER: drupal-user
+      POSTGRES_PASSWORD: drupal-pass
+    volumes:
+      - drupal-data:/var/lib/postgresql/data
+
+volumes:
+  drupal-modules:
+  drupal-profiles:
+  drupal-sites:
+  drupal-themes:
+  drupal-data:

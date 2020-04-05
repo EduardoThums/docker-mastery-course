@@ -46,4 +46,5 @@ Example:
 Maps a host path(some path on your local machine) to the container given path.
 
 [DOCKER COMPOSE]
-- Minimun v2 and above (default v1)
+- Minimun v2 and above to development environment (default v1)
+- Use v3 on production mode (Swarm/Kubernetes)
