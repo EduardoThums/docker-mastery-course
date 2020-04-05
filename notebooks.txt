@@ -46,3 +46,4 @@ Example:
 Maps a host path(some path on your local machine) to the container given path.
 
 [DOCKER COMPOSE]
+- Minimun v2 and above (default v1)
