@@ -1,0 +1,27 @@
+[SWARM]
+- Orquestração de containers
+- Garantir disponibilidade, escabilidade, deploy blue/green, monitoramento, etc
+
+[Componentes]
+- Node: maquinas que rodam os containers
+- Stacks: conjunto de servicos se comunicando entre sí
+- Services: conceito isolado de algum servico (aglomerado de tasks)
+- Tasks: controla/monitora/roda o container
+
+[Node]
+- Worker: servem para rodar os containers no clustes
+- Manager: 
+  - decide onde os containers devem se executados 
+  - gerenciam e mantem o cluster disponivel
+
+[Secret]
+- Habilita a criação de variavies dentro do container na pasta tmpfs
+Ex:
+"""echo "senha" | docker secret create senha-db"""
+"""docker service --secret  senha-db mysql"""
+
+[Config]
+- Cria as variavies dentro do '/' que ficam salvas no container
+Ex:
+"""echo "configuracao" | docker config create cgf-db"""
+"""docker service --config cgf-db mysql"""
