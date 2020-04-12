@@ -31,3 +31,7 @@ Ex:
 - Routing Mesh: serve como um load balancer para as services/tasks. Funciona de duas maneiras:
   - Container-to-container: cada service possui um VIP(virtual IP) e distribui para as tasks
   - External-incoming-traffic: publica a port exposta para todos os nodos e redireciona para o nodo que roda o container 
+
+[Stacks]
+- Aceita compose files para definir topologias de services/networks/volumes
+- "docker stack deploy" ao inves de "docker service create"
