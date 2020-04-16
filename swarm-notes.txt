@@ -14,13 +14,13 @@
   - decide onde os containers devem se executados 
   - gerenciam e mantem o cluster disponivel
 
-[Secret]
+[Secrets]
 - Habilita a criação de variavies dentro do container na pasta tmpfs
 Ex:
 """echo "senha" | docker secret create senha-db"""
 """docker service --secret  senha-db mysql"""
 
-[Config]
+[Configs]
 - Cria as variavies dentro do '/' que ficam salvas no container
 Ex:
 """echo "configuracao" | docker config create cgf-db"""
