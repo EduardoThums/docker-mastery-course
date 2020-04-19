@@ -48,3 +48,8 @@ Maps a host path(some path on your local machine) to the container given path.
 [DOCKER COMPOSE]
 - Minimun v2 and above to development environment (default v1)
 - Use v3 on production mode (Swarm/Kubernetes)
+
+**Single compose design
+Use multiple compose files with base and override tatics
+- docker-compose.yml -> base file
+- docker-compose.override.yml -> override only base compose file 

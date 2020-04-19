@@ -16,6 +16,8 @@
 
 [Secrets]
 - Habilita a criação de variavies dentro do container na pasta tmpfs
+- Swarm usa database propria para fazer a manutenção interna das variavies
+- Caso não esteja no swarm, por baixo dos panos binda o path do secret com o caminho no container
 Ex:
 """echo "senha" | docker secret create senha-db"""
 """docker service --secret  senha-db mysql"""
