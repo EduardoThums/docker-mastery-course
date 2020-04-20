@@ -1,0 +1,14 @@
+[PRIVATE REGISTRY]
+- Normalmente usado quando é preciso fazer o cache de imagens do DockerHub
+- Configuração via arquivo .yml no container
+- Flag de --registry-mirror para fazer o pull das imagens do registry privado (funciona como um proxy)
+- "Security by default": não é feita comunicação com registry sem autenticacao (HTTPS)
+- Atenção ao espaço de armazenamento de disco: https://docs.docker.com/registry/garbage-collection/
+
+
+"""
+docker container run -d \
+  -p 5000:5000 \
+  -v `pwd`/config.yml:/etc/docker/registry/config.yml \
+  registry
+"""
