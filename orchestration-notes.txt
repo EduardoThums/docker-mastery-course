@@ -1,0 +1,13 @@
+[ORCHESTRATION]
+
+[SWARM]
+- Only one container vendor(docker)
+- Easy to manage/deploy
+- Easy to  troubleshoot
+- Follow rule 80/20 (20% of features covers 80% of the use cases)
+- Secure by default
+- Runs pratictly anywhere
+
+[Kubernetes]
+- More cloud vendors and support
+- Covers many use cases
