@@ -11,3 +11,36 @@
 [Kubernetes]
 - More cloud vendors and support
 - Covers many use cases
+
+[HEALTHCHECKS]
+- Executa o comando "exec" dentro do container para validar o estado
+- Retorna exit 0 (SUCCESS) ou exit 1 (ERROR)
+- 3 estados no container -> starting -> healthy -> unhealthy
+  - starting: executa o comandando, se der sucesso passa o container para o estado "healthy"
+  - healthy: executa o comandando a cada 30s, se der erro passa o container para o estado "unhealthy"
+
+"""docker container run \
+  --health-cmd="curl -f localhost:9200/_cluster/health || false" \
+  --health-retries=2 \
+  --health-interval=5s \
+  elasticsearch:2 
+"""
+
+[Dockerfile]
+HEALTHCHECK --retries=2 --interval=5s \
+  CMD curl -f localhost:9200/_cluster/health || exit 1
+
+[PRIVATE REGISTRY]
+- Normalmente usado quando é preciso fazer o cache de imagens do DockerHub
+- Configuração via arquivo .yml no container
+- Flag de --registry-mirror para fazer o pull das imagens do registry privado (funciona como um proxy)
+- "Security by default": não é feita comunicação com registry sem autenticacao (HTTPS)
+- Atenção ao espaço de armazenamento de disco: https://docs.docker.com/registry/garbage-collection/
+
+
+"""
+docker container run -d \
+  -p 5000:5000 \
+  -v `pwd`/config.yml:/etc/docker/registry/config.yml \
+  registry
+"""
