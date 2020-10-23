@@ -1,0 +1,30 @@
+[Dockerfile]
+- order the commands from least to most frequently change (RUN -> COPY)
+(wrong)
+COPY . /app
+RUN apt update
+
+(right)
+RUN apt update
+COPY . /app
+
+- copy more specific resources to the image
+(wrong)
+COPY . /app
+
+(right)
+COPY target/app.jar /app
+
+- The dockerfile is the blueprint, build-it imagining the build process too, not just using a pre-build package or file
+FROM maven:3.6-jdk-8-alpine
+
+WORKDIR /app
+
+COPY pom.xml .
+RUN mvn -e -B dependency:resolve
+
+COPY src ./src
+
+RUN mvn -e -B package 
+
+CMD ["java", "-jar", "/app/app.jar"]
